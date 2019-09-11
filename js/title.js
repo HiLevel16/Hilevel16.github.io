@@ -26,7 +26,7 @@ async function LoadTitle(title) {
 
 }
 window.onload = function() {
-    LoadTitle("HiLevel");
+    LoadTitle("Демин пидор");
 }
 function makeid(length) {
    var result           = '';
