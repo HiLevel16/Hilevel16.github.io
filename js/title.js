@@ -1,17 +1,16 @@
-async function LoadTitle() {
-    var title = 'Демин пидор';
+async function LoadTitle(title) {
     while (true) {
         document.title = "";
         for (var i = 0; i < title.length; i++) {
             document.title = document.title + title[i];
             await sleep(randomInteger(50, 250));
-            document.title = document.title + "*";
+            document.title = document.title + makeid(1);
             await sleep(randomInteger(50, 250));
             document.title = document.title.slice(0, -1);
-            document.title = document.title + "/";
+            document.title = document.title + makeid(1);
             await sleep(randomInteger(50, 250));
             document.title = document.title.slice(0, -1);
-            document.title = document.title + "-";
+            document.title = document.title + makeid(1);
             await sleep(randomInteger(200, 500));
             document.title = document.title.slice(0, -1);
         }
@@ -27,13 +26,17 @@ async function LoadTitle() {
 
 }
 window.onload = function() {
-    LoadTitle();
+    LoadTitle("HiLevel");
 }
-
-
-
-
-
+function makeid(length) {
+   var result           = '';
+   var characters       = '*/-+)(?&^$@!~|.><';
+   var charactersLength = characters.length;
+   for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+   }
+   return result;
+}
 
 
 function randomInteger(min, max) {
